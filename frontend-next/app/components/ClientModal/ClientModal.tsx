@@ -34,7 +34,7 @@ export default function ClientModal({ isOpen, onClose, action, getClients, clien
       pastAction = "alterado";
       break;
     case "SELECT":
-      modalAction = client?.isSelected ? "Selecionar" : "Deselecionar";
+      modalAction = client?.isSelected ? "Selecionar" : "Desselecionar";
       pastAction = client?.isSelected ? "selecionado" : "deselecionado";
       break;
     default:
@@ -110,7 +110,7 @@ export default function ClientModal({ isOpen, onClose, action, getClients, clien
       open={isOpen}
       onCancel={onClose}
       footer={[
-        <StButton key="submit" type="primary" loading={loading} onClick={() => { if (action === "CREATE" || action === "UPDATE") { form.submit() } else { handleSubmit(client) } }} label={action === "UNSELECT_ALL" ? 'Deselecionar clientes' : `${modalAction} Cliente`} />
+        <StButton key="submit" type="primary" loading={loading} onClick={() => { if (action === "CREATE" || action === "UPDATE") { form.submit() } else { handleSubmit(client) } }} label={action === "UNSELECT_ALL" ? 'Desselecionar clientes' : `${modalAction} Cliente`} />
       ]}
     >
       {(action === "DELETE" || action === "SELECT") && <div>Você está prestes a {modalAction} o cliente: <span style={{fontWeight: 'bold'}}>{(client as ClientModel)?.name}</span></div>}
