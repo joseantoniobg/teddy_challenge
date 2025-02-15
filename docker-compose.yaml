@@ -39,7 +39,7 @@ services:
       - ./frontend-next:/app
       - /app/node_modules
     environment:
-      - NEXT_PUBLIC_API_BASE_URL=http://backend:3001
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
     command: ["npm", "run", "dev"]
 
 volumes:
