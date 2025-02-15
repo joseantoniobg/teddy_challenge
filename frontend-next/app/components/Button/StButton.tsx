@@ -4,18 +4,16 @@ interface EnterButtonProps {
   onClick: () => void;
   label: string;
   outlined?: boolean;
-  key?: string;
   type?: "link" | "text" | "primary" | "default" | "dashed" | undefined
   loading?: boolean;
 }
 
-export default function StButton({ onClick, label, outlined, key, type, loading }: EnterButtonProps) {
+export default function StButton({ onClick, label, outlined, type, loading }: EnterButtonProps) {
   return (
     <Button
       type={type ?? "primary"}
       style={outlined ? styles.outilineButton : styles.button}
       onClick={onClick}
-      key={key}
       loading={loading}
     >
       {label}

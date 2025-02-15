@@ -6,6 +6,8 @@ export const formatBRL = (value: number): string => {
 };
 
 export const formatCPF_CNPJ = (value: string): string => {
+  if (!value) return value;
+
   const numericValue = value.replace(/\D/g, "");
 
   if (numericValue.length > 11) {

@@ -79,7 +79,7 @@ export default function ClientModal({ isOpen, onClose, action, getClients, clien
         method: action === "CREATE" || action === "SELECT" || action === "UNSELECT_ALL" ? "POST" : action === "DELETE" ? "DELETE" : "PATCH",
         data: action !== "DELETE" ? values : undefined,
       });
-      message.success(`Cliente ${pastAction} com sucesso!`);
+      message.success(action === "UNSELECT_ALL" ? 'Cliente(s) desselecionado(s) com sucesso' : `Cliente ${pastAction} com sucesso!`);
       form.resetFields();
       setDocumentValue("");
       getClients();
@@ -114,8 +114,9 @@ export default function ClientModal({ isOpen, onClose, action, getClients, clien
       ]}
     >
       {(action === "DELETE" || action === "SELECT") && <div>Você está prestes a {modalAction} o cliente: <span style={{fontWeight: 'bold'}}>{(client as ClientModel)?.name}</span></div>}
-      {(action === "CREATE" || action === "UPDATE") && <Form form={form} layout="vertical" onFinish={handleSubmit}>
-        <Form.Item name="name" rules={[{ required: true, message: "Digite o nome" }]}>
+      <Form form={form} layout="vertical" onFinish={handleSubmit}>
+      {(action === "CREATE" || action === "UPDATE")
+      && <><Form.Item name="name" rules={[{ required: true, message: "Digite o nome" }]}>
           <StInput placeholder="Digite o nome" />
         </Form.Item>
         <Form.Item name="document" rules={[{ required: true, message: "Digite o CPF ou CNPJ" }]}>
@@ -133,8 +134,8 @@ export default function ClientModal({ isOpen, onClose, action, getClients, clien
 
         <Form.Item name="companyEvaluation" rules={[{ required: true, message: "Digite o valor da empresa" }]}>
           <StInput value={companyEvaluation} onChange={(e) => setCompanyEvaluation(formatCurrency(e.target.value))} placeholder="Digite o valor da empresa" />
-        </Form.Item>
-      </Form>}
+        </Form.Item></>}
+      </Form>
     </Modal>
   );
 }
