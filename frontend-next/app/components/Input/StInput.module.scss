@@ -1,0 +1,16 @@
+.input {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    border-color: orange !important;
+  }
+
+  &:focus {
+    border-color: orange !important;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5) !important;
+    outline: none;
+  }
+}

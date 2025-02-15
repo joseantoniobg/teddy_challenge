@@ -1,0 +1,71 @@
+.clientsContainer {
+  padding: 20px;
+
+  .content {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  .clientsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    max-width: 1300px;
+  }
+
+  .itemsPerPage {
+    margin-top: 10px;
+  }
+
+  .clientsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+    justify-content: center;
+
+    @media (min-width: 1300px) { /* Ensures max 4 columns on larger screens */
+      grid-template-columns: repeat(4, 300px);
+    }
+  }
+
+  .clientCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .cardActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .icon {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .selectIcon {
+      color: black;
+    }
+
+    .editIcon {
+      color: gray;
+    }
+
+    .deleteIcon {
+      color: red;
+    }
+  }
+
+  .createButton {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

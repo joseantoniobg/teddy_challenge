@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 25px;
+  padding-top: 25px;
+
+  .burger {
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  .logo {
+    height: 50px;
+    margin-top: -15px;
+    margin-bottom: -10px;
+    margin-left: -60px;
+  }
+
+  .links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: #813808; // Change color on hover
+    }
+  }
+
+  .activeLink {
+    color: #ff6600 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #ff6600;
+  }
+
+  .username {
+    font-weight: bold;
+  }
+}
