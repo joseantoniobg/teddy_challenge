@@ -72,5 +72,5 @@ export const parseCurrencyToNumber = (value: string): number => {
 };
 
 export const getNumbersFromString = (value: string): string => {
-  return value.replace(/[^0-9,-]/g, "");
+  return value.replace(/[^0-9]/g, "");
 };
