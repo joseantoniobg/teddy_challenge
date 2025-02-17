@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDefined, IsEmpty, IsNotEmpty, IsNumber, IsString, MaxLength, Min } from "class-validator";
+import { IsDefined, IsEmpty, IsNotEmpty, IsNumber, IsString, MaxLength, Min, Max } from "class-validator";
 import { IsCpfCnpj } from "../../shared/decorators/is-cpf-cnpj.decorator";
 import { Transform } from "class-transformer";
 
@@ -35,6 +35,7 @@ export class CreateClientDto {
   @IsDefined({ message: 'O campo salário é obrigatório' })
   @IsNumber({ maxDecimalPlaces: 2 }, { message: 'O campo salário deve ser um número com até 2 casas decimais' })
   @Min(0, { message: 'O campo salário deve ser maior ou igual a R$0,00' })
+  @Max(99999999.99, { message: 'O campo salário deve ser menor ou igual a R$99.999.999,99' })
   wage: number;
 
   @ApiProperty({
@@ -46,5 +47,6 @@ export class CreateClientDto {
   @IsDefined({ message: 'O campo avaliação da empresa é obrigatório' })
   @IsNumber({ maxDecimalPlaces: 2 }, { message: 'O campo avaliação da empresa deve ser um número com até 2 casas decimais' })
   @Min(0, { message: 'O campo avaliação da empresa deve ser maior ou igual a R$0,00' })
+  @Max(99999999999.99, { message: 'O campo salário deve ser menor ou igual a R$99.999.999.999,99' })
   companyEvaluation: number;
 }
